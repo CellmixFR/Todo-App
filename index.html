@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <title>Frontend Mentor | Todo app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body id="body">
+
+  <main>
+
+    <div class="title_and_form_and_list">
+      <div class="title" id="title">
+        <h1>TODO </h1>
+        <img class="moon" id="moon" src="images/icon-moon.svg" alt="moon icon">
+        <img id="sun" class="sun" src="images/icon-sun.svg" alt="icon sun">
+      </div>
+
+      <form class="form" id="form">
+          <i class="far fa-circle"></i>
+          <input id="input" type="text" placeholder="Create a new todo...">
+      </form>
+
+      <div class="list">
+        <ul id="ul">
+          
+        </ul>
+      </div>
+
+    </div>
+
+  </main>
+  <footer >
+
+    <div class="footer" id="footer">
+      <div class="items_left">
+        <p>
+          <span id="dynamic_number">0</span> items left
+        </p>
+      </div>
+
+      <ul class="menu">
+        <li class="all" id="all">All</li>
+        <li class="active" id="active"> Active</li>
+        <li class="completed" id="completed">Completed</li>
+      </ul>
+
+      <div class="clear_completed" id="clear_completed">
+        <p>Clear Completed</p>
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
