@@ -5,19 +5,20 @@ let ul = document.getElementById('ul');
 let all = document.getElementById("all");
 let active = document.getElementById("active");
 let completed = document.getElementById("completed");
+let clearCompleted = document.getElementById("clear_completed");
 
 let dynamicNumber = document.getElementById("dynamic_number");
-let count = document.querySelector("ul").children.length;
+// let count = document.querySelector("ul").children.length;
 
 //**************Add Input Content********
 input.addEventListener('keydown', function (e) {  
     if (e.key === 'Enter') {
         e.preventDefault();
-        createToDoDiv(input.value);
+        createToDoDiv(input.value, true);
     }
 })
 
-function createToDoDiv(InputValue) {
+function createToDoDiv(InputValue, writeToLocalStorage) {
     //Create div
     let toDoDiv = document.createElement("div");
     toDoDiv.classList.add("todo_div");
@@ -27,7 +28,6 @@ function createToDoDiv(InputValue) {
     let li = document.createElement("li");
     li.classList.add("todo_item");
     toDoDiv.appendChild(li);
-    saveToDoInLocalStorage(input.value, li);
 
     //button "check"
     let icon_check = document.createElement("button");
@@ -44,6 +44,14 @@ function createToDoDiv(InputValue) {
     li.innerHTML = InputValue;
     input.value = ""; //reset input
 
+    if(localStorage.getItem(InputValue)== "true"){
+        li.classList.add("complete");
+        icon_check.classList.add("complete");
+    }
+
+    if (writeToLocalStorage == true){
+        saveToDoInLocalStorage(InputValue);
+    }
     //Functions calls 
     completeToDo(icon_check, li);
     deleteToDo(toDoDiv, icon_cross, ul, li.innerHTML);
@@ -51,7 +59,7 @@ function createToDoDiv(InputValue) {
     showActiveToDo(toDoDiv, li);
     showCompletedToDo(toDoDiv, li);
     deleteCompletedToDo(toDoDiv, li, ul, li.innerHTML);
-    updateCountItemsLeft();
+    updateCountItemsLeft(li);  
 }
 
 //*************Functions**************/
@@ -63,14 +71,7 @@ function completeToDo(Icon_check, Li) {
         localStorage.setItem(todo, !Li.classList.contains('complete'));
         Li.classList.toggle("complete");
         Icon_check.classList.toggle("complete");
-
-        //Update Count if the icon_check is checked
-        if (Li.classList.contains("complete")) {
-            dynamicNumber = document.getElementById("dynamic_number");
-            dynamicNumber.innerHTML--;
-        } else {
-            dynamicNumber.innerHTML++;
-        }
+        updateCountItemsLeft(Li);
     }
 }
 
@@ -84,7 +85,7 @@ function deleteToDo(ToDoDiv, Icon_cross, Ul, key) {
 
 function showAllToDo(ToDoDiv) {
     all.addEventListener("click", () => {
-        ToDoDiv.style.display = "flex";
+        ToDoDiv.style.display = "flex"; 
         changeColorofLinks(all, active, completed);
     })
 }
@@ -94,9 +95,9 @@ function showActiveToDo(ToDoDiv, Li) {
     active.addEventListener("click", () => {
         changeColorofLinks(active, all, completed);
         if (!Li.classList.contains('complete')) {
-            ToDoDiv.style.display = "flex";
+            ToDoDiv.style.display = "flex"; /*The element is visible...*/
         } else {
-            ToDoDiv.style.display = "none";
+            ToDoDiv.style.display = "none"; /*...else the element is hidden*/
         }
     })
 }
@@ -113,7 +114,6 @@ function showCompletedToDo(ToDoDiv, Li) {
 }
 
 function deleteCompletedToDo(ToDoDiv, Li, Ul, key) {
-    let clearCompleted = document.getElementById("clear_completed");
     clearCompleted.addEventListener("click", () => {
         if (Li.classList.contains('complete')) {
             Ul.removeChild(ToDoDiv);
@@ -126,9 +126,15 @@ function deleteCompletedToDo(ToDoDiv, Li, Ul, key) {
 }
 
 function updateCountItemsLeft() {
-    dynamicNumber = document.getElementById("dynamic_number");
-    count = document.querySelector("ul").children.length;
-    dynamicNumber.innerHTML = count;
+    let lis = document.getElementById("todo_div").getElementsByTagName("li");
+    console.log(lis);
+    let itemsLeft = 0;
+    for (let i = 0; i < lis.length; i++) {
+        if (!lis[i].classList.contains("complete")){
+            itemsLeft++;
+        }
+    }
+    document.getElementById("dynamic_number").innerHTML = itemsLeft;
 }
 
 
@@ -141,66 +147,23 @@ function changeColorofLinks(ColoredLink, NormalLink1, NormalLink2) {
 //************************************/
 
 // Save todos in local storage 
-function saveToDoInLocalStorage(todo, Li) {
-    localStorage.setItem(todo, Li.classList.contains('complete')); //La méthode setItem(), lorsque lui sont passées le duo clé-valeur, les ajoute à l'emplacement de stockage, sinon elle met à jour la valeur si la clé existe déjà. JSON.stringify() transforme un objet JavaScript en une chaîne JSON.
+function saveToDoInLocalStorage(todo) {
+    localStorage.setItem(todo, false); //La méthode setItem(), lorsque lui sont passées le duo clé-valeur, les ajoute à l'emplacement de stockage, sinon elle met à jour la valeur si la clé existe déjà.
 }
 
 document.addEventListener("DOMContentLoaded", getToDo); //Dès que la page se charge, on appelle la fonction
 
-    function getToDo() {
-        // Pour chaque clé :
-        //   Récupérer la clé (qui correspond à une todo)
-        //   Récupérér son été (true ou false qui correspond à complété ou non)
-        //   Afficher le todo dans la div et le li et défini la classe complete si il vaut true
+function getToDo() {
+    // Pour chaque clé :
+    //   Récupérer la clé (qui correspond à une todo)
+    //   Récupérér son été (true ou false qui correspond à complété ou non)
+    //   Afficher le todo dans la div et le li et défini la classe complete si il vaut true
 
-        
-        for (let i = 0; i < localStorage.length; i++) {
-            let key = localStorage.key(i);
-            
-            //Create div
-            let toDoDiv = document.createElement("div");
-            toDoDiv.classList.add("todo_div");
-            ul.appendChild(toDoDiv);
-
-            //Create li
-            let li = document.createElement("li");
-            li.classList.add("todo_item");
-            toDoDiv.appendChild(li);
-            
-
-            //Button "check"
-            let icon_check = document.createElement("button");
-            icon_check.innerHTML = '<img class="icon_check" src="images/icon-check.svg" alt="icon check">';
-            icon_check.classList.add("button_icon_check");
-            toDoDiv.appendChild(icon_check);
-
-
-            //Button "cross"
-            let icon_cross = document.createElement("button");
-            icon_cross.innerHTML = '<img class="icon_cross" src="images/icon-cross.svg" alt="icon cross">';
-            icon_cross.classList.add("button_icon_cross");
-            toDoDiv.appendChild(icon_cross);
-
-            li.innerHTML = key;
-            input.value = ""; //reset input
-
-            if(localStorage.getItem(key)== "true" ){
-                li.classList.add("complete");
-                icon_check.classList.add("complete");
-                console.log(localStorage.getItem(key));
-            } else if(localStorage.getItem(key)== "false" ){
-                console.log(localStorage.getItem(key));
-            }
-        
-            completeToDo(icon_check, li);   
-            deleteToDo(toDoDiv, icon_cross, ul, li.innerHTML);
-            showAllToDo(toDoDiv);
-            showActiveToDo(toDoDiv, li);
-            showCompletedToDo(toDoDiv, li);
-            deleteCompletedToDo(toDoDiv, li, ul, li.innerHTML);
-            updateCountItemsLeft();
-        }
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        createToDoDiv(key, false);
     }
+}
 
 //Delete todos in local storage
 function removeLocalTodos(key) {

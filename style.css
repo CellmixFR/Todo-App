@@ -53,7 +53,7 @@ main{
     justify-content: space-between;
 }
 
-/***********mise en forme du titre********/
+/********** Title ********/
 
 .title{
     width: 100%;
@@ -69,28 +69,24 @@ h1{
     letter-spacing: 20px;
 }
 
-.title img.moon{
+img.moon{
     height: 30px;
     width: 30px;
     position: absolute;
     right: 0;
     top:43px;
-
 }
 
-.title img.sun{
+img.sun{
     height: 30px;
     width: 30px;
     position: absolute;
     right: 0;
     top:43px;
     visibility: hidden;
-    
 }
 
-
-
-/***************mise en forme de l'input *************/
+/*************** input *************/
 
 input{
     width: 100%;
@@ -101,10 +97,9 @@ input{
     font-size: 18px;
     color: hsl(235, 19%, 35%);
     text-indent: 50px; /*La propriété text-indent définit la longueur qui doit être laissée avant le début de la première ligne d'un élément contenant du texte.*/
-    
 }
 
-/*****Comment mettre une icone dans un input*****/
+/***** Icon inside input element*****/
 
 .fa-circle{
     width: 10px;
@@ -125,23 +120,22 @@ form{
     left: 20px;
 }
 
-/******Mise en forme de la liste***/
+/****** List ***/
 
 .list{
-    
     background-color:white; 
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    
 }
 
 #ul{
     padding:0px;
-    margin: 0px;
-    overflow-y: auto; /*Un barre de défilement apparaîtra sur la droite*/
+    margin: 0px; 
 }
 
 
-/********** Personnalisation des items de la liste et des boutons *********/
+/********** List items and buttons *********/
 
 .todo_div{
     height: 20px;
@@ -160,6 +154,7 @@ form{
     text-indent: 50px;
     padding: 10px 0px;
     list-style-type: none;
+    word-wrap: break-word;
 }
 
 .button_icon_check{
@@ -194,7 +189,25 @@ form{
     cursor: pointer;
 }
 
-/***********Footer*********/
+/********* Toggle when we click on icon_check *********/
+
+button.complete{
+    background : rgb(192,88,243);
+    background : linear-gradient(90deg, rgba(192,88,243,1) 25%, rgba(87,221,255,1) 72%);
+    border :none;
+}
+
+li.complete{
+    text-decoration :line-through;
+    text-decoration-color :hsl(236, 9%, 61%);
+    color :hsl(233, 11%, 84%); 
+}
+
+button.complete img{
+    opacity:1;
+}
+
+/*********** Footer *********/
 
 footer{
     width: 60%;
@@ -238,26 +251,7 @@ footer{
     color: hsl(220, 98%, 61%);
 }
 
-/*******Toggle quand on clique sur l'icone check: on veut que ça barre le texte quand on clique et que ça le débarre quand on reclique*****/
-
-button.complete{
-    background : rgb(192,88,243);
-    background : linear-gradient(90deg, rgba(192,88,243,1) 25%, rgba(87,221,255,1) 72%);
-    border :none;
-}
-
-
-li.complete{
-    text-decoration :line-through;
-    text-decoration-color :hsl(236, 9%, 61%);
-    color :hsl(233, 11%, 84%); 
-}
-
-button.complete img{
-    opacity:1;
-}
-
-/*************Dark mode*****/
+/********* Dark mode*********/
 
 .moon, .sun{
     cursor: pointer;
@@ -295,6 +289,7 @@ ul.dark_mode li.complete{
 ul.dark_mode .todo_div{
     border-bottom: 2px solid hsl(237, 14%, 26%);
 }
+
 ul.dark_mode  .button_icon_check{
     border: 2px solid hsl(237, 14%, 26%);
 }
@@ -305,15 +300,89 @@ ul.dark_mode  .button_icon_check{
 
 .title img.sun.dark_mode{
     visibility: visible;
-    
+}
+
+/********* Mediaqueries *********/
+
+
+@media screen and (max-width: 1129px){
+
+    footer{
+        width: 80%;
+    }
+
+    .title_and_form_and_list{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 841px){
+
+    footer{
+        width: 90%;
+    }
+
+    .title_and_form_and_list{
+        width: 90%;
+    }
 }
 
 
+@media screen and (max-width: 758px){
 
+    .footer{
+        display: flex;
+        flex-direction: column;
+    }
 
+    .menu{
+        padding-left: 0px;
+    }
 
+    body{
+        background: url("images/bg-desktop-light.jpg") no-repeat top; 
+        background-color: hsl(236, 33%, 92%);
+    }
+   
+    #body.dark_mode{
+        background: url("images/bg-desktop-dark.jpg") no-repeat top; 
+        background-color: hsl(235, 21%, 11%);
+    }
 
+    img.moon, img.sun{
+        height: 25px;
+        width: 25px;
+        position: absolute;
+        right: 0;
+        top:23px;
+    }
 
+    h1{
+        font-size: 30px;
+    }
+}
 
+@media screen and (max-width: 500px){
+
+    footer{
+        width: 100%;
+    }
+
+    .title_and_form_and_list{
+        width: 100%;
+    }
+
+    img.moon, img.sun{
+        height: 25px;
+        width: 25px;
+        position: absolute;
+        right: 0;
+        top:23px;
+    }
+
+    h1{
+        font-size: 30px;
+    }
+}
 
 
