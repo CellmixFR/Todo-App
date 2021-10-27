@@ -36,11 +36,11 @@ Users should be able to :
 
 - Desktop version of the design : 
 
-![image](
+![image](Screenshot 2021-10-27 at 19-19-34 Frontend Mentor Todo app.png)
 
 - Mobile version of the design :
 
-![image](https://user-images.githubusercontent.com/85306153/132214705-bcaac53a-a58f-404f-94ff-b131a4fdcc21.png)
+![image](
 
 
 ### Links 
