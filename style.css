@@ -1,11 +1,7 @@
 @font-face {
     font-family: 'Josefin Sans';
     src: url('font/JosefinSans-Bold.eot');
-    src: url('font/JosefinSans-Bold.eot?#iefix') format('embedded-opentype'),
-        url('font/JosefinSans-Bold.woff2') format('woff2'),
-        url('font/JosefinSans-Bold.woff') format('woff'),
-        url('font/JosefinSans-Bold.ttf') format('truetype'),
-        url('font/JosefinSans-Bold.svg#JosefinSans-Bold') format('svg');
+    src: url('font/JosefinSans-Bold.eot?#iefix') format('embedded-opentype'), url('font/JosefinSans-Bold.woff2') format('woff2'), url('font/JosefinSans-Bold.woff') format('woff'), url('font/JosefinSans-Bold.ttf') format('truetype'), url('font/JosefinSans-Bold.svg#JosefinSans-Bold') format('svg');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -14,24 +10,20 @@
 @font-face {
     font-family: 'Josefin Sans';
     src: url('font/JosefinSans-Regular.eot');
-    src: url('font/JosefinSans-Regular.eot?#iefix') format('embedded-opentype'),
-        url('font/JosefinSans-Regular.woff2') format('woff2'),
-        url('font/JosefinSans-Regular.woff') format('woff'),
-        url('font/JosefinSans-Regular.ttf') format('truetype'),
-        url('font/JosefinSans-Regular.svg#JosefinSans-Regular') format('svg');
+    src: url('font/JosefinSans-Regular.eot?#iefix') format('embedded-opentype'), url('font/JosefinSans-Regular.woff2') format('woff2'), url('font/JosefinSans-Regular.woff') format('woff'), url('font/JosefinSans-Regular.ttf') format('truetype'), url('font/JosefinSans-Regular.svg#JosefinSans-Regular') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
-html{
+html {
     height: 100%;
 }
 
-body{
+body {
     min-height: 100%;
-    background: url("images/bg-desktop-light.jpg") no-repeat top; 
-    background-size:contain;
+    background: url("images/bg-desktop-light.jpg") no-repeat top;
+    background-size: contain;
     background-color: hsl(236, 33%, 92%);
     display: flex;
     flex-direction: column;
@@ -39,116 +31,120 @@ body{
     font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
 }
 
-main{
+main {
     width: 70%;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
 }
 
-.title_and_form_and_list{
+.title_and_form_and_list {
     width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+
 /********** Title ********/
 
-.title{
+.title {
     width: 100%;
-    margin : 30px 0px 0px 0px;
+    margin: 30px 0px 0px 0px;
     display: flex;
     justify-content: space-between;
     position: relative;
 }
 
-h1{
+h1 {
     color: hsl(0, 0%, 98%);
     font-size: 50px;
     letter-spacing: 20px;
 }
 
-img.moon{
+img.moon {
     height: 30px;
     width: 30px;
     position: absolute;
     right: 0;
-    top:43px;
+    top: 43px;
 }
 
-img.sun{
+img.sun {
     height: 30px;
     width: 30px;
     position: absolute;
     right: 0;
-    top:43px;
+    top: 43px;
     visibility: hidden;
 }
 
+
 /*************** input *************/
 
-input{
+input {
     width: 100%;
     padding: 15px 0px;
-    border:none;
+    border: none;
     border-radius: 5px;
     font-family: 'Josefin Sans', Arial, Helvetica, sans-serif;
     font-size: 18px;
     color: hsl(235, 19%, 35%);
-    text-indent: 50px; /*La propriété text-indent définit la longueur qui doit être laissée avant le début de la première ligne d'un élément contenant du texte.*/
+    text-indent: 50px;
+    /*La propriété text-indent définit la longueur qui doit être laissée avant le début de la première ligne d'un élément contenant du texte.*/
 }
+
 
 /***** Icon inside input element*****/
 
-.fa-circle{
+.fa-circle {
     width: 10px;
-    height:10px;
+    height: 10px;
     font-size: 20px;
     border-radius: 50%;
-    color:hsl(233, 11%, 84%); 
+    color: hsl(233, 11%, 84%);
 }
 
-form{
+form {
     position: relative;
     margin-bottom: 30px;
 }
 
- i{
+i {
     position: absolute;
     top: 14px;
     left: 20px;
 }
 
+
 /****** List ***/
 
-.list{
-    background-color:white; 
+.list {
+    background-color: white;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    
 }
 
-#ul{
-    padding:0px;
-    margin: 0px; 
+#ul {
+    padding: 0px;
+    margin: 0px;
 }
 
 
 /********** List items and buttons *********/
 
-.todo_div{
+.todo_div {
     height: 20px;
     width: 100%;
-    display:flex;
+    display: flex;
     position: relative;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0px;  
-    border-bottom: 1px solid hsl(233, 11%, 84%) ;
+    padding: 20px 0px;
+    border-bottom: 1px solid hsl(233, 11%, 84%);
 }
 
-.todo_item{
+.todo_item {
     width: 100%;
     height: 100%;
     text-indent: 50px;
@@ -157,65 +153,67 @@ form{
     word-wrap: break-word;
 }
 
-.button_icon_check{
+.button_icon_check {
     width: 22px;
     height: 22px;
     position: absolute;
     left: 20px;
     top: 16px;
-    bottom:15px;
+    bottom: 15px;
     border: 2px solid hsl(233, 11%, 84%);
     border-radius: 50%;
     background-color: white;
 }
 
-.button_icon_check img{
+.button_icon_check img {
     opacity: 0;
 }
 
-.button_icon_check:hover{
+.button_icon_check:hover {
     cursor: pointer;
-    border-color: #c058f3;   
+    border-color: #c058f3;
 }
 
-.button_icon_cross{
+.button_icon_cross {
     position: absolute;
     right: 20px;
     border: none;
-    background-color: white; 
+    background-color: white;
 }
 
-.button_icon_cross:hover{
+.button_icon_cross:hover {
     cursor: pointer;
 }
 
+
 /********* Toggle when we click on icon_check *********/
 
-button.complete{
-    background : rgb(192,88,243);
-    background : linear-gradient(90deg, rgba(192,88,243,1) 25%, rgba(87,221,255,1) 72%);
-    border :none;
+button.complete {
+    background: rgb(192, 88, 243);
+    background: linear-gradient(90deg, rgba(192, 88, 243, 1) 25%, rgba(87, 221, 255, 1) 72%);
+    border: none;
 }
 
-li.complete{
-    text-decoration :line-through;
-    text-decoration-color :hsl(236, 9%, 61%);
-    color :hsl(233, 11%, 84%); 
+li.complete {
+    text-decoration: line-through;
+    text-decoration-color: hsl(236, 9%, 61%);
+    color: hsl(233, 11%, 84%);
 }
 
-button.complete img{
-    opacity:1;
+button.complete img {
+    opacity: 1;
 }
+
 
 /*********** Footer *********/
 
-footer{
+footer {
     width: 60%;
     display: flex;
-    justify-content: center;  
+    justify-content: center;
 }
 
-.footer{
+.footer {
     width: 70%;
     color: hsl(236, 9%, 61%);
     display: flex;
@@ -226,18 +224,18 @@ footer{
     border-bottom-right-radius: 5px;
 }
 
-.menu{
+.menu {
     display: flex;
     justify-content: space-around;
     list-style-type: none;
 }
 
-.menu li{
-    padding:10px;
+.menu li {
+    padding: 10px;
     font-weight: bold;
 }
 
-.menu li:hover{
+.menu li:hover {
     cursor: pointer;
     color: hsl(235, 19%, 35%);
 }
@@ -247,142 +245,131 @@ footer{
     color: hsl(235, 19%, 35%);
 }
 
-.menu li:visited{
+.menu li:visited {
     color: hsl(220, 98%, 61%);
 }
 
+
 /********* Dark mode*********/
 
-.moon, .sun{
+.moon,
+.sun {
     cursor: pointer;
 }
 
-input.dark_mode, .footer.dark_mode, ul.dark_mode{
-    background-color:#25273c;
-} 
-
-input.dark_mode{
-    color: hsl(234, 39%, 85%);
-}
-
-form.dark_mode .fa-circle{
-    color: hsl(237, 14%, 26%);
-}
-
-#body.dark_mode{
-    background: url("images/bg-desktop-dark.jpg") no-repeat top/contain; 
-    background-color: hsl(235, 21%, 11%);
-}
-
-#ul.dark_mode button{
+input.dark_mode,
+.footer.dark_mode,
+ul.dark_mode {
     background-color: #25273c;
 }
 
-ul.dark_mode{
+input.dark_mode {
+    color: hsl(234, 39%, 85%);
+}
+
+form.dark_mode .fa-circle {
+    color: hsl(237, 14%, 26%);
+}
+
+#body.dark_mode {
+    background: url("images/bg-desktop-dark.jpg") no-repeat top/contain;
+    background-color: hsl(235, 21%, 11%);
+}
+
+#ul.dark_mode button {
+    background-color: #25273c;
+}
+
+ul.dark_mode {
     color: hsl(236, 9%, 61%);
 }
 
-ul.dark_mode li.complete{
-   color: hsl(233, 14%, 35%);
+ul.dark_mode li.complete {
+    color: hsl(233, 14%, 35%);
 }
 
-ul.dark_mode .todo_div{
+ul.dark_mode .todo_div {
     border-bottom: 2px solid hsl(237, 14%, 26%);
 }
 
-ul.dark_mode  .button_icon_check{
+ul.dark_mode .button_icon_check {
     border: 2px solid hsl(237, 14%, 26%);
 }
 
-.title img.moon.dark_mode{
+.title img.moon.dark_mode {
     visibility: hidden;
 }
 
-.title img.sun.dark_mode{
+.title img.sun.dark_mode {
     visibility: visible;
 }
 
+
 /********* Mediaqueries *********/
 
-
-@media screen and (max-width: 1129px){
-
-    footer{
+@media screen and (max-width: 1129px) {
+    footer {
         width: 80%;
     }
-
-    .title_and_form_and_list{
+    .title_and_form_and_list {
         width: 80%;
     }
 }
 
-@media screen and (max-width: 841px){
-
-    footer{
+@media screen and (max-width: 841px) {
+    footer {
         width: 90%;
     }
-
-    .title_and_form_and_list{
+    .title_and_form_and_list {
         width: 90%;
     }
 }
 
-
-@media screen and (max-width: 758px){
-
-    .footer{
+@media screen and (max-width: 758px) {
+    .footer {
         display: flex;
         flex-direction: column;
     }
-
-    .menu{
+    .menu {
         padding-left: 0px;
     }
-
-    body{
-        background: url("images/bg-desktop-light.jpg") no-repeat top; 
+    body {
+        background: url("images/bg-desktop-light.jpg") no-repeat top;
         background-color: hsl(236, 33%, 92%);
     }
-   
-    #body.dark_mode{
-        background: url("images/bg-desktop-dark.jpg") no-repeat top; 
+    #body.dark_mode {
+        background: url("images/bg-desktop-dark.jpg") no-repeat top;
         background-color: hsl(235, 21%, 11%);
     }
-
-    img.moon, img.sun{
+    img.moon,
+    img.sun {
         height: 25px;
         width: 25px;
         position: absolute;
         right: 0;
-        top:23px;
+        top: 23px;
     }
-
-    h1{
+    h1 {
         font-size: 30px;
     }
 }
 
-@media screen and (max-width: 500px){
-
-    footer{
+@media screen and (max-width: 500px) {
+    footer {
         width: 100%;
     }
-
-    .title_and_form_and_list{
+    .title_and_form_and_list {
         width: 100%;
     }
-
-    img.moon, img.sun{
+    img.moon,
+    img.sun {
         height: 25px;
         width: 25px;
         position: absolute;
         right: 0;
-        top:23px;
+        top: 23px;
     }
-
-    h1{
+    h1 {
         font-size: 30px;
     }
 }
-
-

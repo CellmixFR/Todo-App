@@ -8,10 +8,9 @@ let completed = document.getElementById("completed");
 let clearCompleted = document.getElementById("clear_completed");
 
 let dynamicNumber = document.getElementById("dynamic_number");
-// let count = document.querySelector("ul").children.length;
 
 //**************Add Input Content********
-input.addEventListener('keydown', function (e) {  
+input.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
         e.preventDefault();
         createToDoDiv(input.value, true);
@@ -44,14 +43,15 @@ function createToDoDiv(InputValue, writeToLocalStorage) {
     li.innerHTML = InputValue;
     input.value = ""; //reset input
 
-    if(localStorage.getItem(InputValue)== "true"){
+    if (localStorage.getItem(InputValue) == "true") {
         li.classList.add("complete");
         icon_check.classList.add("complete");
     }
 
-    if (writeToLocalStorage == true){
+    if (writeToLocalStorage == true) {
         saveToDoInLocalStorage(InputValue);
     }
+
     //Functions calls 
     completeToDo(icon_check, li);
     deleteToDo(toDoDiv, icon_cross, ul, li.innerHTML);
@@ -59,13 +59,14 @@ function createToDoDiv(InputValue, writeToLocalStorage) {
     showActiveToDo(toDoDiv, li);
     showCompletedToDo(toDoDiv, li);
     deleteCompletedToDo(toDoDiv, li, ul, li.innerHTML);
-    updateCountItemsLeft(li);  
+    updateCountItemsLeft(li);
 }
 
 //*************Functions**************/
 
 function completeToDo(Icon_check, Li) {
     Icon_check.addEventListener('click', completedToDo);
+
     function completedToDo() {
         todo = Li.innerHTML;
         localStorage.setItem(todo, !Li.classList.contains('complete'));
@@ -85,7 +86,7 @@ function deleteToDo(ToDoDiv, Icon_cross, Ul, key) {
 
 function showAllToDo(ToDoDiv) {
     all.addEventListener("click", () => {
-        ToDoDiv.style.display = "flex"; 
+        ToDoDiv.style.display = "flex";
         changeColorofLinks(all, active, completed);
     })
 }
@@ -121,7 +122,7 @@ function deleteCompletedToDo(ToDoDiv, Li, Ul, key) {
         } else {
             ToDoDiv.style.display = "flex";
         }
-        
+
     })
 }
 
@@ -130,13 +131,12 @@ function updateCountItemsLeft() {
     console.log(lis);
     let itemsLeft = 0;
     for (let i = 0; i < lis.length; i++) {
-        if (!lis[i].classList.contains("complete")){
+        if (!lis[i].classList.contains("complete")) {
             itemsLeft++;
         }
     }
     document.getElementById("dynamic_number").innerHTML = itemsLeft;
 }
-
 
 function changeColorofLinks(ColoredLink, NormalLink1, NormalLink2) {
     ColoredLink.style.color = "rgb(58, 123, 253)";
@@ -151,13 +151,13 @@ function saveToDoInLocalStorage(todo) {
     localStorage.setItem(todo, false); //La méthode setItem(), lorsque lui sont passées le duo clé-valeur, les ajoute à l'emplacement de stockage, sinon elle met à jour la valeur si la clé existe déjà.
 }
 
-document.addEventListener("DOMContentLoaded", getToDo); //Dès que la page se charge, on appelle la fonction
+document.addEventListener("DOMContentLoaded", getToDo); //Dès que la page se charge, on appelle la fonction getToDo
 
 function getToDo() {
     // Pour chaque clé :
-    //   Récupérer la clé (qui correspond à une todo)
-    //   Récupérér son été (true ou false qui correspond à complété ou non)
-    //   Afficher le todo dans la div et le li et défini la classe complete si il vaut true
+    //   Récupérer la clé (=todo)
+    //   Récupérer son état (true ou false qui correspond à complété ou non)
+    //   Afficher le todo dans la div et le li et définir la classe complete si il vaut true
 
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
@@ -167,7 +167,7 @@ function getToDo() {
 
 //Delete todos in local storage
 function removeLocalTodos(key) {
-  localStorage.removeItem(key);
+    localStorage.removeItem(key);
 }
 
 //*****************Dark Mode********************
@@ -201,5 +201,3 @@ sun.addEventListener("click", () => {
     sun.classList.remove("dark_mode");
     form.classList.remove("dark_mode");
 });
-
-
