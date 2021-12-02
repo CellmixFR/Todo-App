@@ -46,7 +46,7 @@ Users should be able to :
 ![image](https://user-images.githubusercontent.com/85306153/144480718-5d63bdb2-5d7e-4bfb-af44-da27eac8fb7d.png)
 
 ### Links 
-<a href ="https://celia-tosic.github.io/Todo-App/>Live site</a>
+<a href ="https://celia-tosic.github.io/Todo-App/">Live site </a>
 
 ## My process 
 
