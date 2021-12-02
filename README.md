@@ -36,12 +36,14 @@ Users should be able to :
 
 - Desktop version of the design : 
 
-![image]
+![image](https://user-images.githubusercontent.com/85306153/144480452-fa670a6e-0e22-476d-8290-f00c906fed6f.png)
+
+![image](https://user-images.githubusercontent.com/85306153/144480655-5f4b511e-6a80-48d7-8577-3b12c3d62c42.png)
+
 
 - Mobile version of the design :
 
-![image]
-
+![image](https://user-images.githubusercontent.com/85306153/144480718-5d63bdb2-5d7e-4bfb-af44-da27eac8fb7d.png)
 
 ### Links 
 
